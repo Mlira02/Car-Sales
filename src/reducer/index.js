@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
     additionalPrice: 0,
     car: {
         price: 26395,
@@ -17,6 +17,18 @@ const initialState = {
 
 export const AppReducer = ( state= initialState, action) => {
     switch (action.type) {
+        case 'ADD_FEATURE' : 
+        return{
+            ...state,
+            car: {features: [...state.car.features, action.payload]},
+            additionalPrice: state.additionalPrice + action.payload.price
+        }
+        case 'DELETE_FEATURE' :
+            return {
+                ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car: { features: state.car.features.filter(item => item.id !== action.payload.id)}
+            }
         default:
             return state;
     }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-
 const Header = props => {
   console.log(props)
   return (
@@ -14,7 +13,6 @@ const Header = props => {
     </>
   );
 };
-
 
 const mapStateToProps = state => {
   return {
